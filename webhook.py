@@ -17,15 +17,14 @@ def main():
     # args = parser.parse_args()
 
     headers = {
-        'Content-Type': 'application/json',
+        'Content-Type': conf['headers']['content-type'],
     }
-    message = 'Finish processing.'
     data = {
-        'username': 'Bot',
-        'content': message,
+        'username': conf['data']['username'],
+        'content': conf['data']['content'],
     };
     url = conf['url']
-    logger.debug(message)
+    logger.debug('content: {}'.format(conf['data']['content']))
     response = requests.post(url, headers=headers, data=json.dumps(data))
     logger.debug(response)
 
