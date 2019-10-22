@@ -1,2 +1,7 @@
 url: http://example.com
+headers:
+  content-type: application/json
+data:
+  username: Bot
+  content: Finish processing.
 
