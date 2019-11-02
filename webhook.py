@@ -19,13 +19,9 @@ def main():
     headers = {
         'Content-Type': conf['headers']['content-type'],
     }
-    data = {
-        'username': conf['data']['username'],
-        'content': conf['data']['content'],
-    };
     url = conf['url']
-    logger.debug('content: {}'.format(conf['data']['content']))
-    response = requests.post(url, headers=headers, data=json.dumps(data))
+    logger.debug('data: {}'.format(conf['data']))
+    response = requests.post(url, headers=headers, data=json.dumps(conf['data']))
     logger.debug(response)
 
 if __name__ == '__main__':
