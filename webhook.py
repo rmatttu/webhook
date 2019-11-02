@@ -8,13 +8,13 @@ import sys
 import yaml
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('profile', help='Profile.')
+    args = parser.parse_args()
     logging.config.fileConfig('log.ini')
     logger = logging.getLogger()
-    conf = yaml.safe_load(open('conf/local.yml', 'r+'))
-    # TODO: 実装する
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-m','--messages', action='append', help='Append messages.')
-    # args = parser.parse_args()
+    configure = yaml.safe_load(open('conf/local.yml', 'r+'))
+    conf = configure[args.profile]
 
     headers = {
         'Content-Type': conf['headers']['content-type'],
